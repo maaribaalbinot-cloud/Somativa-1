@@ -1,16 +1,32 @@
-name: CD - Deploy
+name: CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositório
-        uses: actions/checkout@v3
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.10
+
+      - name: Instalar dependências
+        run: |
+          pip install -r requirements.txt
+
+      - name: Rodar testes (simulação de validação)
+        run: |
+          echo "Rodando testes..."
+          python -m compileall .
 
       - name: Simular deploy
-        run: echo "Deploy da API DevOps realizado com sucesso!"
+        run: |
+          echo "Deploy realizado com sucesso 🚀"
