@@ -1,25 +1,46 @@
-from flask import Flask, jsonify #Criando aplicação web Flask
-import json #Importando json para ler o arquivo de dados
-import random #Importando random para escolher uma pergunta aleatória
+from flask import Flask, render_template_string
+import random
+import json
 
-app = Flask(__name__) 
+app = Flask(__name__)
 
-with open('dados.json', 'r', encoding='utf-8') as f: #Guardando o arquivo json em uma variável Python
+with open('dados.json', 'r', encoding='utf-8') as f:
     dados = json.load(f)
 
-@app.route('/pergunta') #Retornando uma pergunta aleatória
-def pergunta_aleatoria():
-    return jsonify(random.choice(dados))
+@app.route('/pergunta')
+def pergunta():
+    p = random.choice(dados)
 
-@app.route('/todas') #Retornando todas as perguntas
-def todas_perguntas():
-    return jsonify(dados)
+    html = f"""
+    <html>
+        <head>
+            <title>Quiz DevOps</title>
+        </head>
+        <body style="font-family: Arial; text-align: center; margin-top: 50px;">
+            <h2>Questão {p['id']}</h2>
+            <p><strong>{p['pergunta']}</strong></p>
 
-@app.route('/resposta/<int:id>') #Retornando a resposta de uma pergunta específica, usando o id como parâmetro
-def resposta(id):
-    for item in dados:
-        if item["id"] == id:
-            return jsonify({"resposta": item["resposta"]})
-    return jsonify({"erro": "Pergunta não encontrada"})
+            <button onclick="mostrarResposta()">Mostrar resposta</button>
 
-app.run(debug=True) #Iniciando o servidor Flask em modo de depuração para facilitar o desenvolvimento e testes
+            <p id="resposta" style="display:none; margin-top:20px;">
+                {p['resposta']}
+            </p>
+
+            <p style="margin-top:30px; color: gray;">
+                Atualize a página para uma nova pergunta
+            </p>
+
+            <script>
+                function mostrarResposta() {{
+                    document.getElementById("resposta").style.display = "block";
+                }}
+            </script>
+        </body>
+    </html>
+    """
+
+    return render_template_string(html)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
