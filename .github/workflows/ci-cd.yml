@@ -1,0 +1,35 @@
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Instalar dependências
+        run: |
+          pip install flask
+
+      - name: Validar código
+        run: |
+          python -m compileall .
+
+  deploy:
+    needs: build   # 🔥 ISSO CRIA O "BUILD → DEPLOY"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simular deploy
+        run: echo "Deploy realizado com sucesso 🚀"
