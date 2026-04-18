@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "pergunta": "O que é DevOps?",
+    "resposta": "É uma cultura que integra desenvolvimento e operações."
+  },
+  {
+    "id": 2,
+    "pergunta": "O que é CI/CD?",
+    "resposta": "Integração contínua e entrega contínua."
+  },
+  {
+    "id": 3,
+    "pergunta": "O que é Git?",
+    "resposta": "Sistema de controle de versão distribuído."
+  }
+  {
+    "id": 4,
+    "pergunta": "Qual o principal objetivo do DevOps?",
+    "resposta": "Automatizar processos e reduzir o tempo de entrega de software."
+  }
+  {
+    "id": 5,
+    "pergunta": "O que é um commit?",
+    "resposta": "Registro de uma alteração no código."
+  }
+  {
+    "id": 6,
+    "pergunta": "O que é uma branch?",
+    "resposta": "Linha de desenvolvimento separada."
+  }
+  {
+    "id": 7,
+    "pergunta": "O que é merge?",
+    "resposta": "Junção de branches."
+  }
+  {
+    "id": 8,
+    "pergunta": "O que é pull request?",
+    "resposta": "Solicitação para revisar e integrar código."
+  }
+  {
+    "id": 9,
+    "pergunta": "O que é pipeline?",
+    "resposta": "Fluxo automatizado de build, teste e deploy."
+  }
+  {
+    "id": 10,
+    "pergunta": "O que é build?",
+    "resposta": "Processo de compilar/gerar a aplicação."
+  }
+  {
+    "id": 11,
+    "pergunta": "O que é deploy?",
+    "resposta": "Publicação da aplicação em um ambiente."
+  }
+  {
+    "id": 12,
+    "pergunta": "O que é rollback?",
+    "resposta": "Voltar para uma versão anterior do sistema."
+  }
+]
