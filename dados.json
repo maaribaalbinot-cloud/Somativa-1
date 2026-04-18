@@ -39,4 +39,24 @@
     "pergunta": "O que é pull request?",
     "resposta": "Solicitação para revisar e integrar código."
   }
+  {
+    "id": 9,
+    "pergunta": "O que é pipeline?",
+    "resposta": "Fluxo automatizado de build, teste e deploy."
+  }
+  {
+    "id": 10,
+    "pergunta": "O que é build?",
+    "resposta": "Processo de compilar/gerar a aplicação."
+  }
+  {
+    "id": 11,
+    "pergunta": "O que é deploy?",
+    "resposta": "Publicação da aplicação em um ambiente."
+  }
+  {
+    "id": 12,
+    "pergunta": "O que é rollback?",
+    "resposta": "Voltar para uma versão anterior do sistema."
+  }
 ]
